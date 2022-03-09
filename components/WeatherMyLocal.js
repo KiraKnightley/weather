@@ -12,5 +12,6 @@ export default function WeatherMyLocal({load}) {
 const styles = StyleSheet.create({
     weatherMyLocal: {
         color: '#fff',
+        opacity: 0.6,
     },
   });

@@ -1,42 +1,47 @@
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {Picker} from "@react-native-picker/picker";
 
 export default function WeatherPicker({ unitsSystem, setUnitsSystem }) {
 
-
-    function changeUnit(props) {
-        if('metric'){
-            setUnitsSystem('metric');
+    function onBackground(){
+        if (unitsSystem === 'metric'){
+            return {
+                backgroundColor: 'rgba(255, 255, 255, 0.4)',
+            }
         } else {
-            setUnitsSystem('imperial')
+            return {
+                backgroundColor: 'none',
+            }
         }
     }
+    function offBackground(){
+        if (unitsSystem === 'imperial'){
+            return {
+                backgroundColor: 'rgba(255, 255, 255, 0.4)',
+            }
+        } else {
+            return {
+                backgroundColor: 'none',
+            }
+        }
+    }
+
     return (
         <View style={styles.weatherPicker}>
-            <Picker
-                selectedValue={unitsSystem}
-                mode="dropdown"
-                style={{ height: 50, width: 150 }}
-                onValueChange={(itemValue, itemIndex) => setUnitsSystem(itemValue)}
-            >
-                <Picker.Item label="C" value="metric" />
-                <Picker.Item label="F" value="imperial" />
-            </Picker>
+            <Text style={{color: 'rgba(255, 255, 255, 0.4)', fontSize: 18}}>o</Text>
+            <View style={[styles.weatherPickerBoxFirst, onBackground()]}>
+                <TouchableOpacity onPress={() => setUnitsSystem('metric')}>
+                    <Text style={styles.weatherPickerText}>C</Text>
+                </TouchableOpacity>
+            </View>
+            <View style={[styles.weatherPickerBoxSecond, offBackground()]}>
+                <TouchableOpacity onPress={() => setUnitsSystem('imperial')}>
+                    <Text style={styles.weatherPickerText}>F</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     )
-
-    // return (
-    //     <View style={styles.weatherPicker}>
-    //         <Text style={{color: '#fff', fontSize: 18}}>o</Text>
-    //         <View style={styles.weatherPickerBoxFirst}>
-    //             <Text style={[styles.weatherPickerText, styles.weatherDynamic]} onPress={() => changeUnit('metric')}>C</Text>
-    //         </View>
-    //         <View style={styles.weatherPickerBoxSecond}>
-    //             <Text style={styles.weatherPickerText} onPress={() => changeUnit('imperial')}>F</Text>
-    //         </View>
-    //     </View>
-    // )
 }
 const styles = StyleSheet.create({
     weatherPicker: {
@@ -46,7 +51,7 @@ const styles = StyleSheet.create({
     weatherPickerBoxFirst: {
         marginLeft: 7,
         flexDirection: 'row',
-        borderColor: '#fff',
+        borderColor: 'rgba(255, 255, 255, 0.4)',
         borderWidth: 1,
         borderRightWidth: 0,
         borderBottomLeftRadius: 10,
@@ -54,7 +59,7 @@ const styles = StyleSheet.create({
     },
     weatherPickerBoxSecond: {
         borderLeftWidth: 0,
-        borderColor: '#fff',
+        borderColor: 'rgba(255, 255, 255, 0.4)',
         borderWidth: 1,
         borderBottomRightRadius: 10,
         borderTopRightRadius: 10,
@@ -66,13 +71,5 @@ const styles = StyleSheet.create({
         paddingBottom: 4,
         color: '#fff',
         fontSize: 18,
-    },
-    weatherDynamic: (type = 'metric') => {
-        if(props === 'metric'){
-            return {
-                backgroundColor: '#ccc',
-            }
-        }
-        return {backgroundColor: '#ccc',}
     },
 })

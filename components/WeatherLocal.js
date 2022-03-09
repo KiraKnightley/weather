@@ -44,7 +44,7 @@ export default function WeatherLocal({ currentWeather, unitsSystem, setUnitsSyst
                     </View>
                     <View style={styles.weatherLocalBox}>
                         <View style={styles.weatherLocalRow}>
-                            <FontAwesome5 name="location-arrow" size={18} color="#fff"/>
+                            <FontAwesome5 name="location-arrow" size={18} color="rgba(255, 255, 255, 0.6)"/>
                             <View style={{...styles.weatherLocalItems, marginLeft: 8}}>
                                 <WeatherMyLocal load={load}/>
                             </View>
@@ -84,5 +84,6 @@ const styles = StyleSheet.create({
     },
     weatherCity: {
         color: '#fff',
+        opacity: 0.6,
     },
 })
