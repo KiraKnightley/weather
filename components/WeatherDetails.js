@@ -67,8 +67,8 @@ export default function WeatherDetails({ currentWeather, unitsSystem }) {
 
 const styles = StyleSheet.create({
   weatherDetails: {
-    marginTop: 'auto',
-    marginBottom: 6,
+      marginTop: 'auto',
+      marginBottom: 6,
   },
   weatherDetailsRow: {
       flexDirection: 'row',
@@ -84,9 +84,9 @@ const styles = StyleSheet.create({
       justifyContent: 'flex-start',
   },
   textFirst: {
-    fontSize: 15,
-    color: '#ffffff',
-    opacity: 0.6,
+      fontSize: 15,
+      color: '#ffffff',
+      opacity: 0.6,
   },
   textSecondary: {
       fontSize: 18,

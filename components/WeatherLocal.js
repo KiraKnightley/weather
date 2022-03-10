@@ -17,7 +17,6 @@ export default function WeatherLocal({ currentWeather, unitsSystem, setUnitsSyst
     if(display === false) {
         return (
             <View style={styles.weatherLocal}>
-                {display && <WeatherCity cityName={cityName} setCityName={setCityName} loadCity={loadCity} onPress={() => handleGoToOrderClick()}/>}
                 <View style={styles.weatherLocalRow}>
                     <View style={styles.weatherLocalBox}>
                         <View style={styles.weatherLocalRow}>
@@ -29,7 +28,9 @@ export default function WeatherLocal({ currentWeather, unitsSystem, setUnitsSyst
                     <View style={styles.weatherLocalBox}>
                         <View style={styles.weatherLocalRow}>
                             <View style={styles.weatherLocalItems}>
-                                <WeatherPicker unitsSystem={unitsSystem} setUnitsSystem={setUnitsSystem}/>
+                                <WeatherPicker
+                                    unitsSystem={unitsSystem}
+                                    setUnitsSystem={setUnitsSystem}/>
                             </View>
                         </View>
                     </View>
@@ -38,7 +39,8 @@ export default function WeatherLocal({ currentWeather, unitsSystem, setUnitsSyst
                     <View style={styles.weatherLocalBox}>
                         <View style={styles.weatherLocalRow}>
                             <View style={styles.weatherLocalItems}>
-                                <Text style={styles.weatherCity} onPress={() => setDisplay(!display)}>Сменить город</Text>
+                                <Text style={styles.weatherCity}
+                                      onPress={() => setDisplay(!display)}>Сменить город</Text>
                             </View>
                         </View>
                     </View>
@@ -54,7 +56,11 @@ export default function WeatherLocal({ currentWeather, unitsSystem, setUnitsSyst
             </View>
         )
     } else {
-        return <WeatherCity cityName={cityName} setCityName={setCityName} loadCity={loadCity} onPress={() => handleGoToOrderClick()}/>
+        return <WeatherCity
+            cityName={cityName}
+            setCityName={setCityName}
+            loadCity={loadCity}
+            onPress={() => handleGoToOrderClick()}/>
     }
 }
 
