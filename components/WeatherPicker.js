@@ -1,6 +1,5 @@
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import React from 'react';
-import {Picker} from "@react-native-picker/picker";
 
 export default function WeatherPicker({ unitsSystem, setUnitsSystem }) {
 
